@@ -37,8 +37,8 @@ export const App = () => {
   };
 
   const handleClickMore = async () => {
-    const response = await fetchImages(currentSearch, setPage(page + 1));
-    setImages([images, ...response]);
+    const response = await fetchImages(currentSearch, page);
+    setImages([...images, ...response]);
     setPage(page + 1);
   };
 
