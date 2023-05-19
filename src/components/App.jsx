@@ -37,9 +37,10 @@ export const App = () => {
   };
 
   const handleClickMore = async () => {
-    const response = await fetchImages(currentSearch, page);
-    setImages([...images, ...response]);
     setPage(page + 1);
+    const response = await fetchImages(currentSearch, page + 1);
+    setImages([...images, ...response]);
+    console.log(page);
   };
 
   const handleImageClick = e => {
@@ -79,8 +80,8 @@ export const App = () => {
         <React.Fragment>
           <Searchbar onSubmit={handleSubmit} />
           <ImageGallery onImageClick={handleImageClick} images={images} />
-          {images.length >= 12 && totalPages > images.length ? (
-            <Button onClick={handleClickMore} />
+          {images.length > 0 && totalPages > images.length ? (
+            <Button onClick={handleClickMore}>Load more</Button>
           ) : null}
         </React.Fragment>
       )}

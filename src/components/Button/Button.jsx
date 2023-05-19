@@ -1,9 +1,9 @@
 import propTypes from 'prop-types';
 import css from './Button.module.css';
 
-export const Button = ({ onClick }) => (
+export const Button = ({ onClick, children }) => (
   <button className={css.Button} onClick={onClick} type="button">
-    Load more
+    {children}
   </button>
 );
 Button.propTypes = {
