@@ -45,8 +45,8 @@ export const App = () => {
 
   const handleImageClick = e => {
     setModalOpen(true);
-    setModalImg(e.target.alt);
-    setModalAlt(e.target.name);
+    setModalImg(e.target.name);
+    setModalAlt(e.target.largeImageURL);
   };
 
   const handleModalClose = () => {
